@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Siderbar() {
   return (
@@ -7,26 +7,44 @@ function Siderbar() {
         <h1 className="py-5 w-full text-2xl font-bold">React Crypto</h1>
         <hr className="w-full my-2 border-slate-50 border-opacity-40" />
         <div className="w-full flex-auto flex flex-col space-y-5 mt-10">
-          <Link
+          <NavLink
             to={"/"}
-            className="w-full bg-slate-100 px-6 py-2.5 rounded-lg bg-opacity-30 cursor-pointer text-white"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "w-full px-6 py-2.5 text-white cursor-pointer hover:text-lime-400"
+                : isActive
+                ? "w-full bg-slate-100 px-6 py-2.5 rounded-lg bg-opacity-30 cursor-pointer text-white"
+                : ""
+            }
           >
             Home
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to={"/coins"}
-            className="w-full px-6 py-2.5 text-white cursor-pointer hover:text-lime-400"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "w-full px-6 py-2.5 text-white cursor-pointer hover:text-lime-400"
+                : isActive
+                ? "w-full bg-slate-100 px-6 py-2.5 rounded-lg bg-opacity-30 cursor-pointer text-white"
+                : ""
+            }
           >
             Coins
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to={"/news"}
-            className="w-full px-6 py-2.5 text-white cursor-pointer hover:text-lime-400"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "w-full px-6 py-2.5 text-white cursor-pointer hover:text-lime-400"
+                : isActive
+                ? "w-full bg-slate-100 px-6 py-2.5 rounded-lg bg-opacity-30 cursor-pointer text-white"
+                : ""
+            }
           >
             News
-          </Link>
+          </NavLink>
         </div>
-        <span className="">das</span>
+        {/* <span className="">das</span> */}
       </div>
     </div>
   );
